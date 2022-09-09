@@ -1,6 +1,4 @@
 from OWMatchResult import OWMatchResult
-import OWTabScreenHierarchy
-from ScreenCapScraper import ScreenCapScraper
 
 isDebug = True
 folder = 'TestData/' if isDebug else 'RawScreenshot/'
