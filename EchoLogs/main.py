@@ -12,5 +12,3 @@ result.runOCR(isDebug)
 result.formatAllOCR(isDebug)
 print(result)
 
-# ScreenCapScraper
-# OCRDict = ScreenCapScraper(filename, OWTabScreenHierarchy.dict)
