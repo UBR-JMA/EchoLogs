@@ -1,20 +1,20 @@
+from email import message
 import tkinter as tk
 from tkinter import filedialog
 # from https://code.activestate.com/recipes/438123-file-tkinter-dialogs/
-
 # ======== Select a directory:
-def tkSelectDirectory(initialdir="/",title='Please select a directory'):
+def SelectDirectory(defaultDirectory="/", defaultTitle='Please select a directory'):
     root = tk.Tk()
-    dirname = filedialog.askdirectory(root,initialdir,title)
+    dirname = filedialog.askdirectory(parent=root,initialdir=defaultDirectory,title=defaultTitle)
     if len(dirname ) > 0:
         print (f"You chose {0}", dirname)
     return dirname
 
 
 # ======== Select a file for opening:
-def tkSelectFileForOpening(mode='rb',title='Choose a file'):
+def SelectFileForOpening():
     root = tk.Tk()
-    file = filedialog.askopenfile(root,mode,title)
+    file = filedialog.askopenfile(parent=root,mode='rb',title='Choose a file')
     if file != None:
         data = file.read()
         file.close()
@@ -23,18 +23,16 @@ def tkSelectFileForOpening(mode='rb',title='Choose a file'):
 
 
 # ======== "Save as" dialog:
-def tkSaveAs(
+def SaveAs():
     myFormats = [
         ('Windows Bitmap','*.bmp'),
         ('Portable Network Graphics','*.png'),
         ('JPEG / JFIF','*.jpg'),
         ('CompuServer GIF','*.gif'),
-    ],
-    title="Save the image as..."
-):
+        ]
 
     root = tk.Tk()
-    fileName = filedialog.asksaveasfilename(root,myFormats,title)
+    fileName = filedialog.asksaveasfilename(parent=root,filetypes=myFormats ,title="Save the image as...")
     if len(fileName ) > 0:
         print ("Saving...")
         return True
